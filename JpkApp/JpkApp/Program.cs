@@ -122,7 +122,7 @@ namespace JpkApp
                         var jpkSprzedazWiersz =
                             new JPKSprzedazWiersz
                             {
-                                AdresKontrahenta = sprzedazSheet.GetRow(row)?.GetCell(5).StringCellValue,
+                                AdresKontrahenta = sprzedazSheet.GetRow(row)?.GetCell(6).StringCellValue,
                                 DataSprzedazy = sprzedazSheet.GetRow(row)?.GetCell(3).DateCellValue ?? DateTime.Now,
                                 DataSprzedazySpecified = true,
                                 DataWystawienia = issueDate,
@@ -180,7 +180,7 @@ namespace JpkApp
 
             var initJpk = InitJpk();
 
-            using (var fsZakup = new FileStream(@"C:\tmp\Ewidencja nabycia towarów i usług.xls.xlsx", FileMode.Open,
+            using (var fsZakup = new FileStream($"{args[3]}Ewidencja nabycia towarów i usług.xls.xlsx", FileMode.Open,
                 FileAccess.Read))
             {
                 
@@ -190,7 +190,7 @@ namespace JpkApp
                 var zakupRowNum = GetZakupRowNum(zakupSheet);
                 initJpk.InitZakupArray(zakupRowNum - StartRowIndex);
 
-                using (var fsSprzedaz = new FileStream(@"C:\tmp\Ewidencja sprzedaży.xls.xlsx",
+                using (var fsSprzedaz = new FileStream($"{args[3]}Ewidencja sprzedaży.xls.xlsx",
                     FileMode.Open,
                     FileAccess.Read))
                 {
