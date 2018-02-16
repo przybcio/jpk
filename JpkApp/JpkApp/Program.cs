@@ -39,8 +39,8 @@ namespace JpkApp
                         DataOd = dateFrom,
                         DataDo = dateTo,
                         DataWytworzeniaJPK = DateTime.Now,
-                        NazwaSystemu = "jpkApp"
-                        //WariantFormularza = ??
+                        NazwaSystemu = "jpkApp",
+                        WariantFormularza = 3
                     },
                     Podmiot1 = new JPKPodmiot1
                     {
