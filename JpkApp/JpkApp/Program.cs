@@ -27,8 +27,8 @@ namespace JpkApp
             }
 
             JPK InitJpk()
-            {
-                var dateFrom = DateTime.Parse($"01-{args[0]}-{args[1]}");
+            {          
+                var dateFrom = new DateTime(Int16.Parse(args[1]), Int16.Parse(args[0]), 1);
                 var dateTo = dateFrom.AddMonths(1).AddDays(-1);
 
                 return new JPK
@@ -75,7 +75,7 @@ namespace JpkApp
                                 NrDostawcy =
                                     zakupSheet.GetRow(row)?.GetCell(5).NumericCellValue
                                         .ToString(CultureInfo.InvariantCulture),
-                                K_45 = Convert.ToDecimal(zakupSheet.GetRow(row)?.GetCell(9).NumericCellValue),
+                                K_45 = Convert.ToDecimal(zakupSheet.GetRow(row)?.GetCell(9).NumericCellValue) + Convert.ToDecimal(zakupSheet.GetRow(row)?.GetCell(11).NumericCellValue),
                                 K_46 = Convert.ToDecimal(zakupSheet.GetRow(row)?.GetCell(15).NumericCellValue)
                             };
                         var cell = zakupSheet.GetRow(row)?.GetCell(1);
